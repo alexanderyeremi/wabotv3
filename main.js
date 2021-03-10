@@ -146,7 +146,7 @@ conn.handler = async function (m) {
   	for (let name in global.plugins) {
   	  let plugin = global.plugins[name]
       if (!plugin) continue
-      if (!opts['restrict']) if (plugin.tags && plugin.tags.includes('')) continue
+      if (!opts['restrict']) if (plugin.tags && plugin.tags.includes('admin')) continue
       let _prefix = plugin.customPrefix ? plugin.customPrefix : conn.prefix ? conn.prefix : global.prefix
       if (typeof plugin.before == 'function') if (await plugin.before.call(this, m, {
         usedPrefix, _user
